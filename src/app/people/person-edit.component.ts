@@ -11,6 +11,7 @@ export class PersonEditComponent implements OnInit {
   personForm: FormGroup;
 
   @Input() person: any;
+  @Input() patient: any;
   @Output() savePerson = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {

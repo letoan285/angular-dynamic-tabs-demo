@@ -12,7 +12,9 @@ export class TabComponent implements OnInit {
   @Input() active = false;
   @Input() isCloseable = false;
   @Input() template: any;
+  @Input() myName: any;
   @Input() dataContext: any;
+  @Input() patient: any;
   constructor() { }
 
   ngOnInit() {

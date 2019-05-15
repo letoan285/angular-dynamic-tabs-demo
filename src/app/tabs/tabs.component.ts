@@ -65,6 +65,7 @@ export class TabsComponent implements OnInit, AfterContentInit {
     // set the according properties on our component instance
     const instance: TabComponent = componentRef.instance as TabComponent;
     instance.title = title;
+    instance.myName = 'Ho quy li';
     instance.template = template;
     instance.dataContext = data;
     instance.isCloseable = isCloseable;

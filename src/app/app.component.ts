@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { TabsComponent } from './tabs/tabs.component';
 
 @Component({
@@ -6,11 +6,13 @@ import { TabsComponent } from './tabs/tabs.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-dynamic-tabs';
   @ViewChild('personEdit') editPersonTemplate: any;
   @ViewChild('about') aboutTemplate: any;
   @ViewChild(TabsComponent) tabsComponent: any;
+
+  patient = {name: 'no name', age: Math.round(Math.random() * 100) };
   people = [
     {
       id: 1,
@@ -63,6 +65,9 @@ export class AppComponent {
       twitter: '@sara'
     }
   ];
+  ngOnInit() {
+    console.log(this.patient);
+  }
 
   onEditPerson(person) {
     this.tabsComponent.openTab(

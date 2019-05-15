@@ -2,7 +2,7 @@
   <ng-content></ng-content>
   <ng-container *ngIf="template"
     [ngTemplateOutlet]="template"
-    [ngTemplateOutletContext]="{ person: dataContext }"
+    [ngTemplateOutletContext]="{ person: dataContext, patient: patient }"
   >
   </ng-container>
 </div>

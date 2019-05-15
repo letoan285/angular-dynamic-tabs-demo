@@ -12,7 +12,7 @@
 </app-tabs>
 
 <ng-template let-person="person" #personEdit>
-  <app-person-edit [person]="person" (savePerson)="onPersonFormSubmit($event)"></app-person-edit>
+  <app-person-edit [person]="person" [patient]="patient" (savePerson)="onPersonFormSubmit($event)"></app-person-edit>
 </ng-template>
 
 <ng-template #about>
