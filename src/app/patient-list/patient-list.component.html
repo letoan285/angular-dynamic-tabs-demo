@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Twitter</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of patients">
+      <td>{{ p.name }}</td>
+      <td><a routerLink="/person/detail/{{p.id}}">{{ p.surname }} </a></td>
+      <td><a href="https://twitter.com/{{ p.twitter }}" target="_blank">{{ p.twitter }}</a></td>
+      <td><button class="btn btn-sm btn-info" (click)="editPatient.emit(p)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-primary btn-default" (click)="addPatient.emit(patient)">Add new Patient</button>

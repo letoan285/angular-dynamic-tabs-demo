@@ -1,20 +1,36 @@
 <app-tabs>
   <app-tab [tabTitle]="'People'">
     <h3>List of People</h3>
+    <!-- people list component -->
     <app-people-list
       [people]="patients"
       (addPerson)="onAddPerson()"
       (editPerson)="onEditPerson($event)">
     </app-people-list>
-    <hr />
+    <hr>
     <button class="btn btn-success btn-default" (click)="onOpenAbout()"><i class="glyphicon glyphicon-question-sign"></i> About this</button>
+    <hr>
+    <div class="rows">
+      <h3>List of Patient</h3>
+      <app-patient-list (addPatient)="onAddPatient($event)" (editPatient)="onEditPatient($event)"></app-patient-list>
+    </div>
+    <hr />
   </app-tab>
 </app-tabs>
 
+
+
+
+
+<!-- Template for tab  -->
+
+<!-- 1. Template for edit person tab -->
 <ng-template let-person="person" #personEdit>
   <app-person-edit [person]="person" [patient]="patient" (savePerson)="onPersonFormSubmit($event)"></app-person-edit>
 </ng-template>
 
+
+<!-- 2. Template for about tab -->
 <ng-template #about>
   <p>
     Hi, I hope this demo was useful to learn more about dynamic components
@@ -22,12 +38,21 @@
     <code>ComponentResolverFactory</code> etc.
   </p>
   <p>
-    Also check out the <a href="https://juristr.com/blog/2017/07/ng2-dynamic-tab-component/">according blog article</a>. You
-    may also want to read the <a href="https://juristr.com/blog/2016/02/learning-ng2-creating-tab-component/">article about
+    Also check out the <a href="https://juristr.com/blog/2017/07/ng2-dynamic-tab-component/">according blog article</a>. 
+    You may also want to read the <a href="https://juristr.com/blog/2016/02/learning-ng2-creating-tab-component/">article about
     creating basic tabs with <code>@ContentChildren</code> and <code>@QueryList</code></a>.
   </p>
   <p>
     Visit me on <a href="https://twitter.com/juristr">Twitter</a> or on <a href="https://juristr.com/blog">blog</a>.
   </p>
 </ng-template>
+
+
+<!-- Add Patient Template -->
+<ng-template #patientAdd>
+  <app-patient-add [Patient]="Patient"></app-patient-add>
+</ng-template>
+
+
+<!-- Router outlet -->
 <router-outlet></router-outlet>

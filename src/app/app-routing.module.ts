@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: 'person/detail/:id',
     component: PersonEditComponent
+  },
+  {
+    path: 'patients',
+    component: PersonEditComponent
   }
 ];
 

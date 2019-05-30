@@ -9,7 +9,9 @@ import { TabsComponent } from './tabs/tabs.component';
 export class AppComponent implements OnInit {
   title = 'angular-dynamic-tabs';
   @ViewChild('personEdit') editPersonTemplate: any;
+  @ViewChild('patientEdit') editPatientTemplate: any;
   @ViewChild('about') aboutTemplate: any;
+  @ViewChild('patientAdd') patientAddTemplate: any;
   @ViewChild(TabsComponent) tabsComponent: any;
 
   patient = {name: 'no name', age: Math.round(Math.random() * 100) };
@@ -77,6 +79,14 @@ export class AppComponent implements OnInit {
       true
     );
   }
+  onEditPatient(patient: any): void {
+    this.tabsComponent.openTab(
+      `Editing ${patient.name}`,
+      this.editPatientTemplate,
+      patient,
+      true
+    );
+  }
 
   onAddPerson() {
     this.tabsComponent.openTab('New Person', this.editPersonTemplate, {}, true);
@@ -103,6 +113,10 @@ export class AppComponent implements OnInit {
 
   onOpenAbout() {
     this.tabsComponent.openTab('About', this.aboutTemplate, {}, true);
+  }
+  onAddPatient(patient: any) {
+    console.log('add new patient', patient);
+    this.tabsComponent.openTab(`Add Patient ${patient.name}`, this.patientAddTemplate, patient, true);
   }
 
 }
