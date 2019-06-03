@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-patient-list',
@@ -7,23 +7,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class PatientListComponent implements OnInit {
 
-  public patients = [
-    {
-      name: 'Lanta',
-      surname: 'pinter',
-      twitter: 'pin@gmail.com'
-    },
-    {
-      name: 'Peter',
-      surname: 'horhe',
-      twitter: 'hoed@gmail.com'
-    },
-    {
-      name: 'Pires',
-      surname: 'long',
-      twitter: 'nen@gmail.com'
-    }
-  ];
+  @Input() patients: any;
+
   public patient = {
     name: 'Pires',
     surname: 'long',

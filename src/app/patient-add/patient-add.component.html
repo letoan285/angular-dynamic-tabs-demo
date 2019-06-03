@@ -1,21 +1,23 @@
 <div>
-  <h3>Add New Patient</h3>
-  <div class="this-should-be-form">
-
+  <form [formGroup]="createPatientForm" (ngSubmit)="onPatientFormSubmit()">
+    <h3>Add New Patient</h3>
+    <div class="this-should-be-form">
+      
       <div class="form-group">
         <label for="">Name</label>
-        <input type="text" class="form-control" value="{{patient.name}}">
+        <input type="text" class="form-control" formControlName="name">
       </div>
       <div class="form-group">
-          <label for="">Twiter</label>
-          <input type="text" class="form-control" value="{{patient.twitter}}">
+        <label for="">Twiter</label>
+        <input type="text" class="form-control" formControlName="twitter">
       </div>
       <div class="form-group">
-          <label for="">surname</label>
-          <input type="text" class="form-control" value="{{patient.surname}}">
+        <label for="">surname</label>
+        <input type="text" class="form-control" formControlName="surname" >
       </div>
       <div class="form-group">
-          <button class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </div>
-  </div>
+    </div>
+  </form>
 </div>

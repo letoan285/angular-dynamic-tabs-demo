@@ -12,7 +12,7 @@
     <hr>
     <div class="rows">
       <h3>List of Patient</h3>
-      <app-patient-list (addPatient)="onAddPatient($event)" (editPatient)="onEditPatient($event)"></app-patient-list>
+      <app-patient-list (addPatient)="onAddPatient($event)" (editPatient)="onEditPatient($event)" [patients]="patients"></app-patient-list>
     </div>
     <hr />
   </app-tab>
@@ -50,7 +50,7 @@
 
 <!-- Add Patient Template -->
 <ng-template #patientAdd>
-  <app-patient-add [Patient]="Patient"></app-patient-add>
+  <app-patient-add [Patient]="Patient" (savePatient)="onPatientFormSubmit($event)"></app-patient-add>
 </ng-template>
 
 

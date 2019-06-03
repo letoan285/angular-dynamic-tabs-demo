@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   @ViewChild('patientAdd') patientAddTemplate: any;
   @ViewChild(TabsComponent) tabsComponent: any;
 
-  patient = {name: 'no name', age: Math.round(Math.random() * 100) };
+  Patient = {name: 'no name', age: Math.round(Math.random() * 100) };
   people = [
     {
       id: 1,
@@ -65,10 +65,16 @@ export class AppComponent implements OnInit {
       name: 'surika agiro',
       surname: 'Alan hner',
       twitter: '@sara'
+    },
+    {
+      id: 6,
+      name: 'onec morea agiro',
+      surname: 'More',
+      twitter: '@moresara'
     }
   ];
   ngOnInit() {
-    console.log(this.patient);
+    console.log(this.Patient);
   }
 
   onEditPerson(person) {
@@ -105,6 +111,25 @@ export class AppComponent implements OnInit {
       // create a new one
       dataModel.id = Math.round(Math.random() * 100);
       this.people.push(dataModel);
+    }
+    console.log(dataModel);
+    // close the tab
+    this.tabsComponent.closeActiveTab();
+  }
+  onPatientFormSubmit(dataModel: any): void {
+    console.log('patient info ', dataModel);
+    if (dataModel.id > 0) {
+      this.patients = this.patients.map(patient => {
+        if (patient.id === dataModel.id) {
+          return dataModel;
+        } else {
+          return patient;
+        }
+      });
+    } else {
+      // create a new one
+      dataModel.id = Math.round(Math.random() * 100);
+      this.patients.push(dataModel);
     }
     console.log(dataModel);
     // close the tab
